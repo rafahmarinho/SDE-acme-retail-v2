@@ -1,0 +1,8 @@
+-- Initial schema (PLACEHOLDER).
+-- Planned tables (specs/PRD.md):
+--   profiles (role: customer | catalog | warehouse | finance | admin)
+--   categories, products, product_variants, inventory, inventory_reservations
+--   carts, cart_items, favorites, coupons
+--   orders, order_items (unit_price snapshot), payments, shipments
+--   returns, refunds, simulation_scenarios, events
+-- Every table: ENABLE ROW LEVEL SECURITY plus explicit policies. See skills/database/.

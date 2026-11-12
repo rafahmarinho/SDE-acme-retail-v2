@@ -1,0 +1,2 @@
+-- Demo data (PLACEHOLDER): 40 products and 60 orders (specs/PRD.md).
+-- Use synthetic, non-real personal data only. See skills/privacy/T544-*.
