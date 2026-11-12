@@ -44,4 +44,6 @@ create rule no_delete as on delete to audit.log do instead nothing;
 - [ ] "Reset data" doesn't touch `audit.log`
 - [ ] Only admins can read the full audit trail
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `supabase/migrations/0003_audit.sql` puts the log in a private `audit` schema with no-update/no-delete rules and revoked grants; it's read only via `admin_audit_log` (`audit:read`). `sim_reset` never touches it. The 0007 settings changes are audited too. Admin-only read is integration-tested.

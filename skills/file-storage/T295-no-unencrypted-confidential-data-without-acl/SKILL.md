@@ -38,4 +38,6 @@ const { data } = await admin.storage.from("reports").createSignedUrl(key, 300);
 - [ ] Exports are private, per-user and expire
 - [ ] The reset snapshot is only accessible to admins
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** All state is in Postgres under RLS. `sim_reset` regenerates data in the database without snapshot files. No code writes confidential data to `/tmp` or a public bucket, and local demo credentials are gitignored. Exports aren't part of this release.

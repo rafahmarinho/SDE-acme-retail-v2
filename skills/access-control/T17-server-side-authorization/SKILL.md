@@ -51,4 +51,6 @@ export async function issueRefund(input: unknown) {
 - [ ] A customer session receives 403 on `/admin/*` and on refund actions
 - [ ] Direct PostgREST calls are blocked by RLS for unauthorized roles
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/services/auth.ts` (`requirePagePermission`, `assertPermission`) is called in every back-office page and action. Every staff RPC calls `app.require_permission()`, and RLS policies are in `supabase/migrations/0001_init.sql`. Covered by `tests/integration/access-control.test.ts`.

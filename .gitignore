@@ -8,3 +8,6 @@ out/
 *.log
 coverage/
 .data/
+.demo-credentials.local
+next-env.d.ts
+*.tsbuildinfo

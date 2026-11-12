@@ -49,4 +49,6 @@ export async function advanceSimulation(raw: unknown) {
 - [ ] `steps=1e9` and `qty=-5` are rejected
 - [ ] No dynamic imports or file paths are derived from request data
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Sort, category, scenario and step inputs are mapped through enums and bounded (`src/lib/schemas.ts`, `src/actions/simulation.ts`, `search_products` CASE allowlist, `sim_advance` 1-20 steps, quantity 1-20). There are no dynamic imports or file paths from input.

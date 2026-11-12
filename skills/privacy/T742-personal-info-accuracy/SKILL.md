@@ -43,4 +43,6 @@ export async function updateEmail(newEmail: string) {
 - [ ] The email is stored in exactly one place
 - [ ] Address input is validated and de-duplicated
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Self-service profile and addresses (`src/app/account/profile/page.tsx`) with validated input (`src/actions/account.ts`). The email lives only in `auth.users` (`changeEmailAction`), and addresses are de-duplicated by a unique key plus CHECK constraints (0001). Order address snapshots are intentional for history.

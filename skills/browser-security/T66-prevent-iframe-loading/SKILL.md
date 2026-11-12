@@ -52,4 +52,6 @@ export default {
 - [ ] Embedding `/checkout` in an iframe on another origin is blocked
 - [ ] The Stripe Checkout redirect still works
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `next.config.ts` sends X-Frame-Options DENY, nosniff, Referrer-Policy, Permissions-Policy and COOP. `src/proxy.ts` + `src/lib/csp.ts` add a per-request nonce CSP with `frame-ancestors 'none'` and no third-party scripts.

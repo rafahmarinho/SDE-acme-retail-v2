@@ -42,4 +42,6 @@ export function OrderConfirmation({ name, orderNumber, items }: Props) {
 - [ ] A customer name of `{{7*7}}` / `<%= 7*7 %>` renders literally
 - [ ] Email templates are version-controlled
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** There is no template engine. Email templates are static and version-controlled (`supabase/templates/recovery.html`, `password-changed.html`), using Supabase variables only, and receipts are React JSX.

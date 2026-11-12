@@ -50,4 +50,6 @@ export async function requirePermission(p: keyof typeof PERMISSIONS, opts?: { re
 - [ ] A logout control is visible on all authenticated pages
 - [ ] Unmapped routes return 403
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Single permission map `app.permissions_for` (0001), read by the app via `my_permissions()`. Step-up runs in the app (`assertRecentAuth`) and in Postgres (`app.require_recent_auth`, from the JWT `amr`, migration 0007) for refunds > $200, role changes and data reset. Logout is in every layout. Covered by `tests/integration/hardening.test.ts`. Recommendation: enable TOTP MFA for staff.

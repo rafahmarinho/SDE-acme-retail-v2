@@ -44,4 +44,6 @@ export async function encrypt(plain: Uint8Array) {
 - [ ] Each secret is ≥ 32 random bytes and single-purpose
 - [ ] Encryption uses a random IV per operation
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** HMAC-SHA-256 pseudonyms use a purpose-labelled 256-bit HKDF key (`src/lib/request.ts`). Tokens are 192 bits, and signatures use Stripe HMAC / Supabase JWT. There is no MD5, SHA-1, ECB or static IV. Field encryption isn't needed because no card data or secrets are stored.

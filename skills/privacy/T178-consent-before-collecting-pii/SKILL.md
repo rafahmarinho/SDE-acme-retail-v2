@@ -47,4 +47,6 @@ create policy own_consents on public.consents for all using (user_id = auth.uid(
 - [ ] No optional processing happens without a `granted = true` record
 - [ ] The consent UI is separate from the Terms acceptance
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** The `consents` ledger (0001) is append-only and stores the policy version. The sign-up form (`src/app/(auth)/signup/page.tsx`) has separate, unchecked optional consents, recorded by `src/actions/auth.ts`. Recommendations are gated by consent (`personalizationAllowed`). The PIA review is organizational.

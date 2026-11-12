@@ -43,4 +43,6 @@ const event = stripe.webhooks.constructEvent(rawBody, req.headers.get("stripe-si
 - [ ] No password columns in `public` tables
 - [ ] Signature comparisons use `timingSafeEqual` or SDK helpers
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Supabase Auth handles password hashing. `node:crypto` provides `timingSafeEqual` (cron) and HMAC/HKDF (`src/lib/request.ts`). Stripe webhooks are verified with `constructEvent` (`src/services/payments.ts`), and tokens come from pgcrypto `gen_random_bytes`. There is no custom crypto.

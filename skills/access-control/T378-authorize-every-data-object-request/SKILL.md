@@ -52,4 +52,6 @@ export async function getOrderForCurrentUser(orderId: string) {
 - [ ] RLS policies exist on orders, order_items, returns, refunds, profiles and favorites
 - [ ] Customers cannot update payment, delivery or refund status fields
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** RLS ownership policies (0001), owner-filtered reads (`src/services/orders.ts`), `notFound()` for foreign IDs, writes only via security definer RPCs, and a 192-bit tracking token (`track_order`, 0006). Covered by `tests/integration/access-control.test.ts`.

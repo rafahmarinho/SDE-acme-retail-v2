@@ -43,4 +43,6 @@ create policy "finance reads reports" on storage.objects for select
 - [ ] Oversized or wrong-type uploads are rejected
 - [ ] Storage policies are tested for each role
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** The `product-images` bucket (0005) has a 2 MB limit, a JPEG/PNG/WebP allowlist, catalog/admin-only writes and no SELECT policy (no listing). `src/lib/upload.ts` checks that magic bytes match the MIME type and rejects SVG. Unit-tested.

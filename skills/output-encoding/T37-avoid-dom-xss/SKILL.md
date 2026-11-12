@@ -41,4 +41,6 @@ export function safeRedirectPath(input: string | null): string {
 - [ ] `?returnTo=javascript:alert(1)` and `?returnTo=//evil.com` redirect to `/`
 - [ ] Filter params outside the allowed enums are ignored
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/lib/safe-redirect.ts` is used for login, email-link and layout redirects. ESLint bans `innerHTML`, `outerHTML`, `document.write` and `insertAdjacentHTML`, and filters are zod enums (`src/lib/schemas.ts`). Unit-tested.

@@ -47,4 +47,6 @@ await Promise.race([provider.authorize(input), sleep(8000).then(() => ({ status:
 - [ ] Every route handler has `maxDuration` and a size check
 - [ ] The timeout scenario completes in under 10 s with a "timeout" status
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `next.config.ts` sets the Server Action body limit (2 MB) and allowed origins. Route handlers set `maxDuration = 10`, and the webhook is capped at 256 KB. The payment timeout is a stored `timed_out` state (`pay_order`), so the request never hangs.

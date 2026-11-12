@@ -50,4 +50,6 @@ $$;
 - [ ] Search input `'); drop table products;--` returns 0 results and no error leak
 - [ ] All RPC functions use bound parameters and `set search_path = ''`
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** All access goes through supabase-js builders/RPCs with bound values. `search_products` (0002) uses escaped ILIKE and `websearch_to_tsquery`, and every function has `set search_path = ''`. The only `.or()` filter (`src/services/inventory.ts`) restricts input to `[A-Za-z0-9 -]`. An injection payload is tested in `commerce-flows.test.ts`.

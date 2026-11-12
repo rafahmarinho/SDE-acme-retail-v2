@@ -43,4 +43,6 @@ create view public.sales_by_day as
 - [ ] Report views contain no direct identifiers
 - [ ] Event payloads exclude PII
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Demo identities are synthetic on `example.test` (`scripts/seed.mjs`, `app.sim_address`). Events hold IDs and amounts only, the dashboard uses aggregates (`admin_dashboard`), and audit entries strip name, phone and address columns.

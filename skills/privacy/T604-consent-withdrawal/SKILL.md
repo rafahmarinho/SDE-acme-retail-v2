@@ -43,4 +43,6 @@ export async function withdrawConsent(form: FormData) {
 - [ ] After withdrawal, no marketing emails or analytics events are sent
 - [ ] Withdrawal is recorded with a timestamp
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/app/account/settings/page.tsx` shows a one-click toggle per purpose. `setConsentAction` appends to the ledger and writes an audit entry. The latest decision is read on every request (`getConsents`, `personalizationAllowed`), so withdrawal takes effect immediately.

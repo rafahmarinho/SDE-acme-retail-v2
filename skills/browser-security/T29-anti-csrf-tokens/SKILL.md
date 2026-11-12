@@ -47,4 +47,6 @@ export async function POST(req: Request) {
 - [ ] A cross-origin POST to a mutation endpoint returns 403
 - [ ] Every route-handler mutation verifies the CSRF token
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** All mutations are Server Actions (Origin-checked, with `serverActions.allowedOrigins` in `next.config.ts`). Logout is POST with an Origin check (`src/app/auth/logout/route.ts`), cookies are SameSite=Lax, and the Stripe webhook is signature-authenticated. No state changes on GET.

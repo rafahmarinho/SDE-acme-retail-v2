@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <body style="font-family: Arial, sans-serif; color: #1f2937; background: #ffffff;">
+    <h2 style="color: #15803d;">ACME Retail</h2>
+    <p>We received a request to reset the password for your ACME Retail account.</p>
+    <p>
+      <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery&next=/account/update-password"
+         style="background:#16a34a;color:#ffffff;padding:10px 16px;border-radius:6px;text-decoration:none;">
+        Choose a new password
+      </a>
+    </p>
+    <p>This link expires in 30 minutes and can be used once.</p>
+    <p>If you didn't request this, you can ignore this email. Your password won't change.</p>
+  </body>
+</html>

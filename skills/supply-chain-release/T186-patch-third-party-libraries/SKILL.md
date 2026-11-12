@@ -43,4 +43,6 @@ pnpm audit --prod --audit-level=high
 - [ ] Automated dependency PRs are enabled
 - [ ] `pnpm audit` shows no high/critical issues at release
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Current pinned versions with a lockfile and a `pnpm.onlyBuiltDependencies` allowlist (`package.json`). `vercel.json` uses a frozen install, and `next.config.ts` sets `poweredByHeader: false`. **New:** `.github/dependabot.yml` and `.github/workflows/ci.yml` (frozen install + `pnpm audit --audit-level=high`). The current audit shows 0 vulnerabilities.

@@ -44,4 +44,6 @@ export async function listMyOrders() {
 - [ ] All API responses are validated against DTO schemas
 - [ ] Error responses contain no stack traces or SQL
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** ESLint bans `select("*")`. Strict zod response DTOs (`src/lib/dto.ts`) are validated in `src/app/api/products/route.ts` and `src/app/api/orders/route.ts`. Error bodies are generic with a reference (`src/lib/errors.ts`), and function EXECUTE grants are revoked by default.

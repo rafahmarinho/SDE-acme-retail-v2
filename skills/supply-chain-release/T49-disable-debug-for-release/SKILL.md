@@ -43,4 +43,6 @@ compiler: { removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["
 - [ ] A non-admin gets 403 when the flag is on
 - [ ] There are no known demo credentials or debug routes in production
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** In the app: `ENABLE_SIMULATION` + the `simulation:run` permission + recent sign-in (`src/services/simulation.ts`, `src/actions/simulation.ts`, admin simulation page), plus no source maps, `removeConsole` and no `x-powered-by` (`next.config.ts`), and a generic `src/app/error.tsx`. **New:** a database switch `store_settings.simulation_enabled` and a DB step-up on `sim_reset` (migrations 0007/0004). Set it to `false` in production.

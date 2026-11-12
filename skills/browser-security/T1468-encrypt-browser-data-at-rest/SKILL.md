@@ -41,4 +41,6 @@ export function saveGuestCart(cart: GuestCart) {
 - [ ] Sessions use httpOnly cookies
 - [ ] Prices in client storage are never trusted by the server
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/components/cart/cart-context.tsx` stores only zod-validated `{variantId, qty}`. Sessions use httpOnly cookies, the Realtime token is kept in memory (`src/components/live-refresh.tsx`), prices are always re-quoted by `price_cart`, and storage is cleared on logout.

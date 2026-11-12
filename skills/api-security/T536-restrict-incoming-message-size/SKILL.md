@@ -42,4 +42,6 @@ export const CartUpdate = z.object({
 - [ ] Oversized bodies return 413
 - [ ] A cart with more than 50 lines or qty > 20 is rejected
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/lib/schemas.ts` has bounded schemas (cart ≤ 50 lines, qty ≤ 20, capped strings), and `src/lib/http.ts` `readJson` byte-caps request bodies. On top of that: the Server Action body limit, the webhook size cap, the 2 MB upload check, and DB-level `CART_TOO_LARGE`/`INVALID_QUANTITY`.

@@ -47,4 +47,6 @@ logger.info({ evt: "checkout.reserve", orderId, items: n, durationMs });
 - [ ] Logs are structured JSON with request IDs
 - [ ] No PII or secrets appear in logs (sample review)
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `audit.track_change` triggers (0003, PII stripped) cover orders, refunds, returns, inventory, role changes, products, variants, coupons and store_settings. `src/services/audit.ts` logs security events: logins (ok and failed), logouts, sign-ups, password/email changes, role changes and privacy choices.

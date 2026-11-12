@@ -46,4 +46,6 @@ import { loadStripe } from "@stripe/stripe-js";
 - [ ] CSP blocks scripts from non-allowlisted origins
 - [ ] The payment provider is selected from a fixed enum
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/services/payments.ts` uses a static `import("stripe")` and picks the provider from a validated env enum. The CSP (`src/lib/csp.ts`) allows no third-party script origins, so Stripe.js isn't loaded (Checkout is a redirect). ESLint enforces `no-eval`, `no-implied-eval` and `no-new-func`.

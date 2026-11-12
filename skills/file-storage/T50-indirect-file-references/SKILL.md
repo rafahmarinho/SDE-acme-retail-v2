@@ -45,4 +45,6 @@ export async function getReturnAttachmentUrl(attachmentId: string) {
 - [ ] Object keys are server-generated
 - [ ] User A cannot obtain a signed URL for user B's attachment
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/services/catalog.ts` `uploadProductImage` generates the key (`products/<productId>/<uuid>.<ext>`). The path regex is enforced in `src/db/storage.ts`, the `products.image_path` CHECK constraint (0001) and the storage insert policy (0005), so the client never supplies a path. There are no private attachments in this release.

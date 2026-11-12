@@ -49,4 +49,6 @@ export async function middleware(req: NextRequest) {
 - [ ] Role changes invalidate existing sessions
 - [ ] Authorization uses `getUser()` on the server
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/proxy.ts` + `src/db/server.ts` + `src/db/cookie-options.ts` (Supabase sessions only, httpOnly/SameSite/Secure cookies), `src/services/auth.ts` (`getUser()` validation, roles read from Postgres per request), `supabase/config.toml` (1 h JWT, refresh-token rotation).

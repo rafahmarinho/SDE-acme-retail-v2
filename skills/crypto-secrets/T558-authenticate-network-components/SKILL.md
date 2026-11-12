@@ -44,4 +44,6 @@ if (req.headers.get("authorization") !== `Bearer ${process.env.CRON_SECRET}`) re
 - [ ] `?status=approved` in the URL cannot mark an order paid
 - [ ] The cron endpoint returns 401 without the secret
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Stripe sessions are re-fetched server-side and webhooks are signature-checked (`src/services/payments.ts`, `src/app/api/webhooks/stripe/route.ts`). The cron endpoint needs a constant-time bearer secret, and `mark_order_paid_external` is service-role only. **New:** `store_settings.payment_provider` (migration 0007) is enforced by `place_order`, `pay_order` and `complete_payment_challenge`, so clients can't choose the simulated provider when the store runs Stripe (`tests/integration/hardening.test.ts`).

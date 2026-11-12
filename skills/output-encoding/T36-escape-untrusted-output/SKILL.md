@@ -47,4 +47,6 @@ export function ProductDescription({ md }: { md: string }) {
 - [ ] A product description containing `<img src=x onerror=alert(1)>` renders inert
 - [ ] Searching for `<script>alert(1)</script>` shows it as escaped text
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** All user data is rendered as JSX text. Product descriptions are plain text (no HTML path, so no sanitizer is needed). `eslint.config.mjs` enforces `react/no-danger`, image URLs come only from `productImageUrl()`, errors are generic (`src/lib/errors.ts`), and a nonce CSP is set in `src/proxy.ts`.

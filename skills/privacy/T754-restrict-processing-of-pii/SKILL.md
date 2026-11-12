@@ -39,4 +39,6 @@ create table public.processing_restrictions (
 - [ ] Jobs skip restricted users (unit-tested)
 - [ ] Restriction changes are audit-logged
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `processing_restrictions` (0001, RLS own-rows) with Settings toggles (`setRestrictionAction`, audit-logged). Enforced in `personalizationAllowed` for recommendations, which is the only optional processing in the codebase.

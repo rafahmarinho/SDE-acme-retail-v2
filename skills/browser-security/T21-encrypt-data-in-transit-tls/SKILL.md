@@ -44,4 +44,6 @@ NEXT_PUBLIC_SUPABASE_URL: z.string().url().refine(
 - [ ] The app refuses to start with non-HTTPS service URLs in production
 - [ ] There are no mixed-content warnings in the browser console
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** HSTS is set in `next.config.ts`. `src/lib/env.ts` / `env.server.ts` reject non-HTTPS service URLs (loopback excepted) and disabled TLS validation. The CSP allows `wss:` for Supabase and adds `upgrade-insecure-requests` (`src/lib/csp.ts`).

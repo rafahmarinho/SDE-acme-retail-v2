@@ -50,4 +50,6 @@ grant update (full_name, phone, default_address) on public.profiles to authentic
 - [ ] Policy tests pass for all 5 roles
 - [ ] Customers cannot change `profiles.role`
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** RLS is enabled on every table (0001, 0007). The column grant on `profiles` allows only `full_name` and `phone`, and storage policies are in 0005. Per-role integration tests run in CI (`.github/workflows/ci.yml`).

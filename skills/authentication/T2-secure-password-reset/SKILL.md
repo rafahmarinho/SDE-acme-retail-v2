@@ -54,4 +54,6 @@ export async function requestReset(form: FormData) {
 - [ ] `redirectTo` cannot be influenced by the client
 - [ ] Other sessions are revoked after the password changes
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/actions/auth.ts` (generic response, IP + pseudonymized-email rate limits, fixed `redirectTo`), `src/app/auth/confirm/route.ts` (single-use token hash), `supabase/config.toml` (30-min OTP, 60 s resend, password policy, password-changed notification), `supabase/templates/`. Other sessions are revoked after the change. Remaining: CAPTCHA needs provider keys (see `docs/security.md`).

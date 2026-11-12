@@ -41,4 +41,6 @@ await stripe.checkout.sessions.create({
 - [ ] Stripe metadata holds only internal IDs
 - [ ] Profile-to-UUID lookup is restricted by RLS
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Events and audit entries use UUIDs, and the audit log strips PII columns. Stripe metadata holds only `order_id`. Email pseudonyms are now keyed HMACs (`src/lib/request.ts`), and the profile mapping is protected by RLS.

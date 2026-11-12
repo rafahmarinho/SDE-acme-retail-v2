@@ -49,4 +49,6 @@ grant select, insert, update on public.carts, public.cart_items, public.favorite
 - [ ] `anon` cannot write to any table
 - [ ] `authenticated` cannot write to orders, payments or refunds directly
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/db/server.ts` (user-scoped default) and `src/db/admin.ts` (service role, ESLint-restricted to rate-limit/audit/payments/cron). Deny-by-default grants are in 0001/0002, and state transitions go through security definer functions. Removed the unused `src/lib/supabase/*` placeholders.

@@ -37,4 +37,6 @@ const sql = postgres(process.env.DATABASE_URL!, { ssl: { rejectUnauthorized: tru
 - [ ] The startup check fails if validation is disabled
 - [ ] Postgres connections use verify-full
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/lib/env.server.ts` fails fast when `NODE_TLS_REJECT_UNAUTHORIZED=0`. All outbound traffic goes through supabase-js or the Stripe SDK with default certificate validation. There are no runtime direct Postgres connections; the seed script uses the HTTPS API.

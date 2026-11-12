@@ -43,4 +43,6 @@ gitleaks protect --staged --redact
 - [ ] The client bundle contains no service-role or Stripe secret (`grep` on `.next/static`)
 - [ ] Seeds contain no fixed passwords
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/lib/env.server.ts` is server-only and accepts only `sk_test_` Stripe keys. `.env.example` has empty secrets, `.gitignore` covers `.env*.local` and `.demo-credentials.local`, and `scripts/seed.mjs` takes the password from env or generates a random one. A gitleaks job runs in `.github/workflows/ci.yml`.

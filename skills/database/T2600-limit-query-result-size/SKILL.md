@@ -48,4 +48,6 @@ const { data, count } = await supabase.from("orders")
 - [ ] PostgREST `max_rows` is configured
 - [ ] `?pageSize=10000` is clamped or rejected
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Every list is paginated with `range()` (≤ 50 per page) in `src/services/*`. `search_products` clamps the limit to 50, and `supabase/config.toml` sets `max_rows = 200`. Tested in `commerce-flows.test.ts`.

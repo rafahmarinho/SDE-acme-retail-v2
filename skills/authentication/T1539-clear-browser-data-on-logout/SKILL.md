@@ -43,4 +43,6 @@ export async function POST() {
 - [ ] After logout, the browser's back button doesn't show account data
 - [ ] The refresh token is revoked server-side
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/app/auth/logout/route.ts` (POST only, Origin check, server-side `signOut`, `Clear-Site-Data: "cache", "cookies", "storage"`, `no-store`). The logout form is in the header on every page (`src/components/header.tsx`).

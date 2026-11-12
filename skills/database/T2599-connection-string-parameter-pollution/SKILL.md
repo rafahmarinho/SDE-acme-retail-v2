@@ -42,4 +42,6 @@ const Scenario = z.enum(["happy-path", "payment-declines", "stockouts", "late-de
 - [ ] Startup fails fast if environment variables are malformed
 - [ ] Scenarios are selected from a fixed enum
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/lib/env.ts` / `src/lib/env.server.ts` validate all connection settings at startup. Simulation scenarios are a CHECK-constrained enum (0001) and a zod enum (`src/actions/simulation.ts`). No client is ever built from request data.

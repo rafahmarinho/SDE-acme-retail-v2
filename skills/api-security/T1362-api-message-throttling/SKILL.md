@@ -42,4 +42,6 @@ await rateLimit(`checkout:user:${userId}`, { max: 5, windowSec: 600 });
 - [ ] Coupon brute force is throttled
 - [ ] Reservations expire, and one user cannot hold more than N reservations
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/services/rate-limit.ts` throttles login, sign-up, recovery and password/email changes. `app.rate_limit_hit` throttles coupons, checkout and payment inside the database functions. Customers can hold at most 3 open checkouts, reservations expire after 15 minutes, and Supabase Auth limits are set in `config.toml`.

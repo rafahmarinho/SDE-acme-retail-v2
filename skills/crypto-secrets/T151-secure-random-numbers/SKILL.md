@@ -38,4 +38,6 @@ export const idempotencyKey  = () => randomUUID();
 - [ ] Tracking tokens have ≥ 128 bits of entropy
 - [ ] Coupon codes are not sequential or predictable
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** Tracking tokens are 192-bit `gen_random_bytes(24)` and primary keys are `gen_random_uuid()`. Payment refs use `gen_random_bytes`, and channel IDs use `crypto.randomUUID()`. ESLint bans `Math.random`; Postgres `random()` is used only in the simulation functions.

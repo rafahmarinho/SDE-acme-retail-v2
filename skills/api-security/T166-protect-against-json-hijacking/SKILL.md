@@ -44,4 +44,6 @@ return json({ items: orders, page, total });
 - [ ] All JSON responses use `application/json` and `nosniff`
 - [ ] User-specific JSON is not cacheable
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** `src/lib/http.ts` `json()` refuses top-level arrays and sets `application/json`, `nosniff` and `private, no-store`. Every route handler uses it. Unit-tested.

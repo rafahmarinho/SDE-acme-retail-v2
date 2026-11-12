@@ -52,4 +52,6 @@ export function preflight(req: Request) {
 - [ ] Credentials are allowed only for allowlisted origins
 - [ ] Private endpoints still require auth regardless of Origin
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** The API is same-origin by default. `src/lib/http.ts` provides an allowlist-only CORS helper (`CORS_ALLOWED_ORIGINS`, https only, `Vary: Origin`, no credentials), used only by the public `GET /api/products`. Private endpoints send no CORS headers.

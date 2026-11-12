@@ -39,4 +39,6 @@ export async function safeFetch(url: string, init?: RequestInit) {
 - [ ] `http://169.254.169.254/` and `file://` URLs are rejected
 - [ ] Simulated integrations make no network calls
 
-**Status:** Pending
+**Status:** Applied
+
+**Implementation (2026-11-12):** The app never fetches user-supplied URLs. Simulated integrations run in Postgres, product images are uploaded rather than fetched, and the only outbound HTTP is the Stripe SDK (10 s timeout, fixed callback URLs from `APP_BASE_URL`), in `src/services/payments.ts`.
